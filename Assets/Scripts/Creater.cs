@@ -2,16 +2,12 @@ using UnityEngine;
 
 public class Creater : MonoBehaviour
 {
-    private Spawner _spawner;
-    private Exploder _exploder;
-    private CameraRaycaster _camera;
+    [SerializeField] private Spawner _spawner;
+    [SerializeField] private Exploder _exploder;
+    private Raycaster _camera;
 
-    private void Awake()
-    {
-        _camera = Camera.main.GetComponent<CameraRaycaster>();
-        _spawner = gameObject.AddComponent<Spawner>();
-        _exploder = gameObject.AddComponent<Exploder>();
-    }
+    private void Awake() =>
+        _camera = Camera.main.GetComponent<Raycaster>();
 
     private void OnEnable() =>
         _camera.Clicked += Click;
@@ -19,36 +15,16 @@ public class Creater : MonoBehaviour
     private void OnDisable() =>
         _camera.Clicked -= Click;
 
-    private void Click(GameObject gameObject)
+    private void Click(Cube cube)
     {
-        Cube copyCube = null;
+        Cube[] copies;
 
-        if (TryGetCube(gameObject, out Cube cube))
+        if (cube.DivideChance > 0)
         {
-            for (int i = 0; i < SetRandomNumber(); i++)
-            {
-                copyCube = _spawner.CreateCube(cube);
+            copies = _spawner.CreateCubes(cube);
 
-                if (copyCube != null)
-                    _exploder.ExplodeCube(copyCube);
-            }
+            foreach (Cube copy in copies)
+                _exploder.Explode(copy.Rigidbody);
         }
     }
-
-    private bool TryGetCube(GameObject gameObject, out Cube cube)
-    {
-        bool isExist = false;
-        cube = null;
-
-        if (gameObject.GetComponent<Cube>() != null)
-        {
-            isExist = true;
-            cube = gameObject.GetComponent<Cube>();
-        }
-
-        return isExist;
-    }
-
-    private int SetRandomNumber(int min = 2, int max = 6) =>
-        Random.Range(min, max + 1);
 }

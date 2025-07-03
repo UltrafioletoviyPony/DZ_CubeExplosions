@@ -2,12 +2,6 @@ using UnityEngine;
 
 public class Exploder : MonoBehaviour
 {
-    public void ExplodeCube(Cube cube)
-    {
-        if (cube != null)
-        {
-            Rigidbody rigidbody = cube.GetComponent<Rigidbody>();
-            rigidbody.AddExplosionForce(5000, cube.transform.position, 200);
-        }
-    }
+    public void Explode(Rigidbody rigidbody) =>
+        rigidbody.AddExplosionForce(700, rigidbody.transform.position, 200);
 }

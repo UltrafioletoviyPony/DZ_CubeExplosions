@@ -2,22 +2,25 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    public Cube CreateCube(Cube cube)
+    public Cube[] CreateCubes(Cube cube)
     {
-        Cube copy = null;
+        Cube[] copies = new Cube[CreateRandomNumber()] ;
 
-        if (cube.DivideChance > 0)
+        for (int i = 0; i < copies.Length; ++i)
         {
-            copy = Instantiate(cube);
-            copy.UpdateDivideChance(cube.DivideChance);
-            copy.transform.localScale *= .5f;
-            copy.GetComponent<Renderer>().material.color = CreateRandomColor();
+            copies[i] = Instantiate(cube);
+            copies[i].UpdateDivideChance(cube.DivideChance);
+            copies[i].transform.localScale *= .5f;
+            copies[i].GetComponent<Renderer>().material.color = CreateRandomColor();
         }
 
         Destroy(cube.gameObject);
 
-        return copy;
+        return copies;
     }
+
+    private int CreateRandomNumber(int min = 2, int max = 6) =>
+        Random.Range(min, max + 1);
 
     private Color CreateRandomColor()
     {
