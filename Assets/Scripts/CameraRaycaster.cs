@@ -7,7 +7,7 @@ public class CameraRaycaster : MonoBehaviour
     private Ray _ray;
     private RaycastHit _hit;
     private int _layerMask;
-    public event Action<RaycastHit> Clicked;
+    public event Action<GameObject> Clicked;
 
     private void Awake()
     {
@@ -20,6 +20,9 @@ public class CameraRaycaster : MonoBehaviour
         _ray = _camera.ScreenPointToRay(Input.mousePosition);
 
         if (Physics.Raycast(_ray, out _hit, Mathf.Infinity, _layerMask) && Input.GetMouseButtonDown(0))
-            Clicked?.Invoke(_hit);
+        {
+            if (_hit.collider != null)
+                Clicked?.Invoke(_hit.collider.gameObject);
+        }
     }
 }

@@ -11,10 +11,9 @@ GameObject:
   - component: {fileID: 6391071942941227716}
   - component: {fileID: 5304609334206435586}
   - component: {fileID: 5245626582280505938}
-  - component: {fileID: 2452207284752640075}
-  - component: {fileID: 8351393149115357736}
   - component: {fileID: 1323415192621235377}
   - component: {fileID: 6783251481292330420}
+  - component: {fileID: 5467338423664954368}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -90,30 +89,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &2452207284752640075
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2503704007995618223}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 113094d6b00942147ab2e54fe7c18505, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &8351393149115357736
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2503704007995618223}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91385482c05f2a44f847b72211b0ca0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &1323415192621235377
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -161,4 +136,16 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 3
+--- !u!114 &5467338423664954368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2503704007995618223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 113094d6b00942147ab2e54fe7c18505, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
