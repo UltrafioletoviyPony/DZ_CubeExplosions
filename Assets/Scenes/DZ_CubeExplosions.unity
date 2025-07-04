@@ -455,6 +455,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spawner: {fileID: 649489196}
   _exploder: {fileID: 649489195}
+  _raycaster: {fileID: 330585548}
 --- !u!114 &649489195
 MonoBehaviour:
   m_ObjectHideFlags: 0

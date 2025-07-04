@@ -14,8 +14,6 @@ public class Spawner : MonoBehaviour
             copies[i].GetComponent<Renderer>().material.color = CreateRandomColor();
         }
 
-        Destroy(cube.gameObject);
-
         return copies;
     }
 

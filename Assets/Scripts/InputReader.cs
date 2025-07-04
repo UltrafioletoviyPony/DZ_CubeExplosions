@@ -2,11 +2,16 @@ using UnityEngine;
 
 public class InputReader : MonoBehaviour
 {
+    private Camera _camera;
+
+    private void Awake() =>
+        _camera = Camera.main;
+
     public bool MouseButtonDownClick(MouseButton mouseButton) =>
         Input.GetMouseButtonDown((int)mouseButton);
 
     public Ray GetRayFromMainCamera() =>
-        Camera.main.ScreenPointToRay(Input.mousePosition);
+        _camera.ScreenPointToRay(Input.mousePosition);
 }
 
 public enum MouseButton

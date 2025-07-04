@@ -11,10 +11,13 @@ public class Raycaster : MonoBehaviour
 
     private void Update()
     {
-        if (Physics.Raycast(_inputReader.GetRayFromMainCamera(), out _hit, Mathf.Infinity, ~_layerMask) && _inputReader.MouseButtonDownClick(MouseButton.Left))
+        if (_inputReader.MouseButtonDownClick(MouseButton.Left))
         {
-            if (_hit.collider != null && _hit.collider.TryGetComponent(out Cube cube))
-                Clicked?.Invoke(cube);
+            if (Physics.Raycast(_inputReader.GetRayFromMainCamera(), out _hit, Mathf.Infinity, ~_layerMask))
+            {
+                if (_hit.collider != null && _hit.collider.TryGetComponent(out Cube cube))
+                    Clicked?.Invoke(cube);
+            }
         }
     }
 }
