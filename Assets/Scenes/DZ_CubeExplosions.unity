@@ -418,6 +418,7 @@ GameObject:
   - component: {fileID: 649489193}
   - component: {fileID: 649489196}
   - component: {fileID: 649489195}
+  - component: {fileID: 649489197}
   - component: {fileID: 649489194}
   m_Layer: 0
   m_Name: 'InputHandler '
@@ -455,6 +456,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spawner: {fileID: 649489196}
   _exploder: {fileID: 649489195}
+  _colorChanger: {fileID: 649489197}
   _raycaster: {fileID: 330585548}
 --- !u!114 &649489195
 MonoBehaviour:
@@ -480,6 +482,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7952ffe61b322e448b478474b813fd3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &649489197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 649489192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1743d8896c03b2e4aa294d0c57143750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &772838030

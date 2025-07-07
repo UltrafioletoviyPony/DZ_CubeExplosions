@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -16,11 +17,13 @@ public class Cube : MonoBehaviour
 
     public Cube Clone()
     {
-        GameObject prefab = Instantiate(Resources.Load<GameObject>("Prefabs/CubeOriginal"));
+        const string CubePrefabPath = "Prefabs/CubeOriginal";
+        float scaleMultiplier = .5f;
+
+        GameObject prefab = Instantiate(Resources.Load<GameObject>(CubePrefabPath));
         prefab.transform.position = this.transform.position;
         prefab.transform.rotation = this.transform.rotation;
-        prefab.transform.localScale = this.transform.localScale * .5f;
-        prefab.GetComponent<Renderer>().material.color = CreateRandomColor();
+        prefab.transform.localScale = this.transform.localScale * scaleMultiplier;
         prefab.GetComponent<Cube>().UpdateDivideChance(this.DivideChance);
 
         return prefab.GetComponent<Cube>();
@@ -28,21 +31,12 @@ public class Cube : MonoBehaviour
 
     private void UpdateDivideChance(int divideChance)
     {
-        if (divideChance % 2 == 0)
-            _divideChance = divideChance / 2;
+        int chanceDivider = 2;
+        int zeroChance = 0;
+
+        if (divideChance % chanceDivider == zeroChance)
+            _divideChance = divideChance / chanceDivider;
         else
-            _divideChance = 0;
-    }
-
-    private Color CreateRandomColor()
-    {
-        float minColorChanelValue = 0;
-        float maxColorChanelValue = 1;
-        float saturation = .5f;
-        float value = 1f;
-
-        return UnityEngine.Random.ColorHSV(minColorChanelValue, maxColorChanelValue,
-                                            saturationMin: saturation, saturationMax: saturation,
-                                            valueMin: value, valueMax: value);
+            _divideChance = zeroChance;
     }
 }

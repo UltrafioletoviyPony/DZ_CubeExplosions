@@ -4,6 +4,7 @@ public class InputHandler : MonoBehaviour
 {
     [SerializeField] private Spawner _spawner;
     [SerializeField] private Exploder _exploder;
+    [SerializeField] private ColorChanger _colorChanger;
     [SerializeField] private Raycaster _raycaster;
 
     private void OnEnable() =>
@@ -18,6 +19,7 @@ public class InputHandler : MonoBehaviour
         {
             Cube[] copies = _spawner.CreateCubes(cube);
             _exploder.Explode(copies, cube.transform.position);
+            _colorChanger.ChangeRandomColors(copies);
         }
 
         Destroy(cube.gameObject);
