@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Creater : MonoBehaviour
+public class InputHandler : MonoBehaviour
 {
     [SerializeField] private Spawner _spawner;
     [SerializeField] private Exploder _exploder;
@@ -14,14 +14,10 @@ public class Creater : MonoBehaviour
 
     private void Click(Cube cube)
     {
-        Cube[] copies;
-
-        if (cube.DivideChance % 2 == 0)
+        if (cube.DivideChance > 0)
         {
-            copies = _spawner.CreateCubes(cube);
-
-            foreach (Cube copy in copies)
-                _exploder.Explode(copy.Rigidbody);
+            Cube[] copies = _spawner.CreateCubes(cube);
+            _exploder.Explode(copies, cube.transform.position);
         }
 
         Destroy(cube.gameObject);

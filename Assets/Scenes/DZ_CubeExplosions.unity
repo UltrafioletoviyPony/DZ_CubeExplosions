@@ -420,7 +420,7 @@ GameObject:
   - component: {fileID: 649489195}
   - component: {fileID: 649489194}
   m_Layer: 0
-  m_Name: Creater
+  m_Name: 'InputHandler '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -435,7 +435,7 @@ Transform:
   m_GameObject: {fileID: 649489192}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -22.68, y: 0, z: -6.48}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -468,6 +468,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91385482c05f2a44f847b72211b0ca0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _explosionForce: 700
+  _explosionRadius: 200
 --- !u!114 &649489196
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -537,7 +539,7 @@ PrefabInstance:
       objectReference: {fileID: 330585548}
     - target: {fileID: 2503704007995618223, guid: be7090c9274e21346bd7f96177df1ca1, type: 3}
       propertyPath: m_Name
-      value: Cube (1)
+      value: C
       objectReference: {fileID: 0}
     - target: {fileID: 6391071942941227716, guid: be7090c9274e21346bd7f96177df1ca1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -615,7 +617,7 @@ PrefabInstance:
       objectReference: {fileID: 330585548}
     - target: {fileID: 2503704007995618223, guid: be7090c9274e21346bd7f96177df1ca1, type: 3}
       propertyPath: m_Name
-      value: Cube
+      value: D
       objectReference: {fileID: 0}
     - target: {fileID: 6391071942941227716, guid: be7090c9274e21346bd7f96177df1ca1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1014,7 +1016,7 @@ PrefabInstance:
       objectReference: {fileID: 330585548}
     - target: {fileID: 2503704007995618223, guid: be7090c9274e21346bd7f96177df1ca1, type: 3}
       propertyPath: m_Name
-      value: Cube
+      value: A
       objectReference: {fileID: 0}
     - target: {fileID: 6391071942941227716, guid: be7090c9274e21346bd7f96177df1ca1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1084,7 +1086,11 @@ PrefabInstance:
       objectReference: {fileID: 330585548}
     - target: {fileID: 2503704007995618223, guid: be7090c9274e21346bd7f96177df1ca1, type: 3}
       propertyPath: m_Name
-      value: Cube (1)
+      value: B
+      objectReference: {fileID: 0}
+    - target: {fileID: 2503704007995618223, guid: be7090c9274e21346bd7f96177df1ca1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6391071942941227716, guid: be7090c9274e21346bd7f96177df1ca1, type: 3}
       propertyPath: m_LocalPosition.x

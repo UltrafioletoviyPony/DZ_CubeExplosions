@@ -15,5 +15,36 @@ public class Cube : MonoBehaviour
     }
 
     public void UpdateDivideChance(int divideChance) =>
-        _divideChance = divideChance / 2;
+        _divideChance = CreateRandomDivideChance(divideChance / 2);
+
+    public Cube Clone()
+    {
+        GameObject prefab = Instantiate(Resources.Load<GameObject>("Prefabs/CubeOriginal"));
+        prefab.transform.position = this.transform.position;
+        prefab.transform.rotation = this.transform.rotation;
+        prefab.transform.localScale = this.transform.localScale * .5f;
+        prefab.GetComponent<Renderer>().material.color = CreateRandomColor();
+        prefab.GetComponent<Cube>().UpdateDivideChance(this.DivideChance);
+
+        return prefab.GetComponent<Cube>();
+    }
+
+    private Color CreateRandomColor()
+    {
+        float minColorChanelValue = 0;
+        float maxColorChanelValue = 1;
+        float saturation = .5f;
+        float value = 1f;
+
+        return UnityEngine.Random.ColorHSV(minColorChanelValue, maxColorChanelValue,
+                                            saturationMin: saturation, saturationMax: saturation,
+                                            valueMin: value, valueMax: value);
+    }
+
+    private int CreateRandomDivideChance(int maxDivideChance)
+    {
+        int minDivideChance = 0;
+
+        return UnityEngine.Random.Range(minDivideChance, maxDivideChance);
+    }
 }
